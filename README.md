@@ -13,7 +13,7 @@
 
 ## Español
 
-Dashboard de redes sociales con tema claro y oscuro, fiel al diseño y accesible (WCAG 2.1 AA).
+Dashboard de redes sociales con tema claro y oscuro, fiel al diseño y pensado para cumplir WCAG 2.1 AA.
 
 > **Reto de Frontend Mentor.** El diseño, los íconos y los textos son de [Frontend Mentor](https://www.frontendmentor.io): [Social media dashboard with theme switcher](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H). El código es mío.
 
@@ -50,6 +50,11 @@ Muestra los seguidores de cuatro redes y la actividad del día, con un interrupt
 - Semántica: un `h1`, secciones con encabezado y las tarjetas como listas.
 - Lectores de pantalla: cada tarjeta se lee completa (por ejemplo, "Facebook, @tatianadelsoglio, 1987 Followers, 12 more Today"); las flechas son decorativas y el sentido va en texto oculto.
 - Movimiento reducido: la transición entre temas se desactiva con `prefers-reduced-motion`.
+
+**Cómo se verificó.** No es una auditoría ni una certificación. Lo que se hizo:
+- Contraste medido en Chrome sobre los colores ya renderizados (ver la tabla de abajo).
+- Pruebas de teclado (Tab y Espacio en el interruptor) y del texto que reciben los lectores de pantalla: roles, nombres accesibles y texto oculto, revisados en el árbol de accesibilidad de Chrome y con tests de Testing Library. No se probó con un lector de pantalla real (NVDA, VoiceOver).
+- Comparación visual con los JPG del reto a 375 y 1440 px, en los dos temas.
 
 ### Contraste
 
@@ -133,7 +138,7 @@ npm run dev
 
 ## English
 
-Social media dashboard with light and dark themes, faithful to the design and accessible (WCAG 2.1 AA).
+Social media dashboard with light and dark themes, faithful to the design and built to meet WCAG 2.1 AA.
 
 > **Frontend Mentor challenge.** The design, icons and copy belong to [Frontend Mentor](https://www.frontendmentor.io): [Social media dashboard with theme switcher](https://www.frontendmentor.io/challenges/social-media-dashboard-with-theme-switcher-6oY8ozp_H). The code is mine.
 
@@ -170,6 +175,11 @@ Shows followers for four networks and today's activity, with a theme toggle. The
 - Semantics: one `h1`, sections with headings and the cards as lists.
 - Screen readers: each card reads as a whole (for example, "Facebook, @tatianadelsoglio, 1987 Followers, 12 more Today"); arrows are decorative and the direction is in hidden text.
 - Reduced motion: the theme transition is turned off with `prefers-reduced-motion`.
+
+**How it was checked.** This is not an audit or a certification. What was done:
+- Contrast measured in Chrome on the rendered colors (see the table below).
+- Keyboard checks (Tab and Space on the toggle) and checks of what screen readers receive: roles, accessible names and hidden text, reviewed in Chrome's accessibility tree and with Testing Library tests. It was not tested with a real screen reader (NVDA, VoiceOver).
+- Visual comparison with the challenge JPGs at 375 and 1440 px, in both themes.
 
 ### Contrast
 
