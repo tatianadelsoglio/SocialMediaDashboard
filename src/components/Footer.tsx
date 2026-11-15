@@ -6,6 +6,10 @@ import Separator from './Separator'
 const BRAND_ICON_WIDTH = 40
 const BRAND_ICON_HEIGHT = 35
 
+// Archivos de public/: llevan la base de Vite (GitHub Pages sirve el sitio en un subdirectorio)
+const BRAND_ICON_SRC = `${import.meta.env.BASE_URL}brand/tamade-icon.webp`
+const BRAND_ICON_WHITE_SRC = `${import.meta.env.BASE_URL}brand/tamade-icon-white.webp`
+
 export default function Footer() {
   return (
     <footer lang="es" className="mt-12 pb-6">
@@ -21,14 +25,14 @@ export default function Footer() {
             {/* Las dos versiones superpuestas, para fundir una en otra al cambiar de tema */}
             <span className="relative block w-5 shrink-0">
               <img
-                src="/brand/tamade-icon.webp"
+                src={BRAND_ICON_SRC}
                 alt=""
                 width={BRAND_ICON_WIDTH}
                 height={BRAND_ICON_HEIGHT}
                 className="theme-transition block h-auto w-5 dark:opacity-0"
               />
               <img
-                src="/brand/tamade-icon-white.webp"
+                src={BRAND_ICON_WHITE_SRC}
                 alt=""
                 width={BRAND_ICON_WIDTH}
                 height={BRAND_ICON_HEIGHT}
