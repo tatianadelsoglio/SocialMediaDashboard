@@ -1,1 +1,56 @@
-@import './globals.css';
+@import 'tailwindcss';
+
+/* El modo oscuro lo controla la clase `dark` en <main> (ver useDarkMode). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-*: initial;
+
+  --font-sans: 'Inter Variable', sans-serif;
+
+  /* Breakpoint propio: el layout original pasa a 2 columnas a 480px */
+  --breakpoint-xs: 30rem;
+
+  /* Marcas y estados */
+  --color-lime-green: hsl(163, 72%, 41%);
+  --color-bright-red: hsl(356, 69%, 56%);
+  --color-facebook: #168ef4;
+  --color-twitter: hsl(203, 89%, 53%);
+  --color-instagram-1: hsl(37, 97%, 70%);
+  --color-instagram-2: hsl(329, 70%, 58%);
+  --color-youtube: hsl(348, 97%, 39%);
+
+  /* Tema claro */
+  --color-background: white;
+  --color-foreground: #1d2029;
+  --color-muted: #5f616d;
+  --color-surface: #f8f9fe;
+  --color-card: #f0f3fa;
+  --color-card-title: #6f717e;
+  --color-switch-track: #5f616d;
+  --color-switch-knob: white;
+
+  /* Tema oscuro */
+  --color-background-dark: #1d2029;
+  --color-foreground-dark: white;
+  --color-muted-dark: #8088ad;
+  --color-surface-dark: #1d2029;
+  --color-card-dark: #252b43;
+  --color-card-title-dark: #8088ad;
+  --color-switch-from-dark: #4796d2;
+  --color-switch-to-dark: #37ce8f;
+  --color-switch-knob-dark: #282943;
+}
+
+@layer base {
+  /* Preflight fija 1.5; el diseño original usa el line-height por defecto */
+  html {
+    line-height: normal;
+  }
+
+  /* Preflight pone max-width: 100%, lo que cambia el ancho mínimo de las
+     tarjetas en la grilla. El original usaba el default del navegador. */
+  img {
+    max-width: none;
+  }
+}

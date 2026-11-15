@@ -8,7 +8,9 @@ export default function App() {
   const [isDark, setIsDark] = useDarkMode()
 
   return (
-    <main className={isDark ? 'is-dark-mode' : 'is-light-mode'}>
+    <main
+      className={`min-h-screen bg-background text-foreground antialiased dark:bg-background-dark dark:text-foreground-dark ${isDark ? 'dark' : ''}`}
+    >
       <Header>
         <ThemeSwitch checked={isDark} onChange={setIsDark} />
       </Header>
