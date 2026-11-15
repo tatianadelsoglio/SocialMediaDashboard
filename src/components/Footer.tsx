@@ -24,11 +24,15 @@ function ExternalLink({ href, children }: ExternalLinkProps) {
   )
 }
 
+// El punto medio es decorativo; el punto oculto da la pausa al lector de pantalla
 function Separator() {
   return (
-    <span aria-hidden="true" className="mx-1.5">
-      ·
-    </span>
+    <>
+      <span aria-hidden="true" className="mx-1.5">
+        ·
+      </span>
+      <span className="sr-only">. </span>
+    </>
   )
 }
 
@@ -36,7 +40,7 @@ export default function Footer() {
   return (
     <footer lang="es" className="mt-12 pb-6">
       <Container>
-        <p className="theme-transition text-center text-[11px] leading-relaxed text-text-muted-light dark:text-text-muted-dark">
+        <p className="theme-transition text-center text-xs leading-relaxed text-text-muted-light dark:text-text-muted-dark">
           Reto de <ExternalLink href="https://www.frontendmentor.io">Frontend Mentor</ExternalLink>
           <Separator />
           Desarrollado por{' '}
