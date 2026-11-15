@@ -1,5 +1,6 @@
-import { iconUp, platformIcons } from '../data/icons'
+import { platforms } from '../data/platforms'
 import type { FollowersStat, Platform } from '../types/social'
+import TrendArrow from './TrendArrow'
 
 const accentBar: Record<Platform, string> = {
   facebook: 'before:bg-facebook',
@@ -12,27 +13,32 @@ const accentBar: Record<Platform, string> = {
 export default function FollowersCard({
   platform,
   username,
-  followers,
-  todayFollowers,
+  audience,
+  audienceLabel,
+  todayChange,
 }: FollowersStat) {
+  const isPositive = todayChange >= 0
+
   return (
-    <article
-      className={`relative overflow-hidden rounded-lg bg-card-light py-[1.7em] text-center before:absolute before:inset-x-0 before:top-0 before:block before:h-[4px] dark:bg-card-dark ${accentBar[platform]}`}
+    <li
+      className={`relative overflow-hidden rounded-[5px] bg-card-light pt-8 pb-[26px] text-center before:absolute before:inset-x-0 before:top-0 before:h-1 hover:bg-card-hover-light dark:bg-card-dark dark:hover:bg-card-hover-dark ${accentBar[platform]}`}
     >
-      <p className="my-[1em] flex items-center justify-center text-[.9em] font-bold text-text-muted-light dark:text-text-muted-dark">
-        <img src={platformIcons[platform]} alt="" className="mr-[5px]" />
+      <p className="flex h-5 items-center justify-center gap-2 text-xs leading-none font-bold text-text-muted-light dark:text-text-muted-dark">
+        <img src={platforms[platform].icon} alt="" />
         {username}
       </p>
-      <p className="my-[1em]">
-        <span className="text-[50px] font-bold">{followers}</span>
-        <span className="block text-[.75em] tracking-[5px] text-text-muted-light uppercase dark:text-text-muted-dark">
-          Followers
+      <p className="mt-[23px]">
+        <span className="block text-[56px] leading-none font-bold">{audience}</span>
+        <span className="mt-[7px] block text-xs leading-none tracking-[5px] text-text-muted-light uppercase dark:text-text-muted-dark">
+          {audienceLabel}
         </span>
       </p>
-      <p className="mt-[20px] mb-[1em] flex items-center justify-center text-[.7em] font-bold text-lime-green">
-        <img src={iconUp} alt="" className="mr-[5px]" />
-        {todayFollowers} Today
+      <p
+        className={`mt-7 text-xs leading-none font-bold ${isPositive ? 'text-lime-green' : 'text-bright-red'}`}
+      >
+        <TrendArrow isPositive={isPositive} />
+        {Math.abs(todayChange)} Today
       </p>
-    </article>
+    </li>
   )
 }

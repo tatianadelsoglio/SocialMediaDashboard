@@ -1,4 +1,6 @@
 import type { ReactNode } from 'react'
+import { totalFollowers } from '../data/followers'
+import { formatNumber } from '../utils/formatUtils'
 import Container from './Container'
 
 interface HeaderProps {
@@ -7,13 +9,15 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <header className="rounded-b-[20px] bg-top-bg-light pt-[2em] pb-[100px] dark:bg-top-bg-dark">
+    <header className="pt-[38px] pb-[41px] md:pb-[49px]">
       <Container>
-        <div className="lg:grid lg:grid-cols-[1fr_200px]">
+        <div className="md:flex md:items-start md:justify-between md:gap-6">
           <div>
-            <h1 className="text-[1.7em] font-bold">Social Media Dashboard</h1>
-            <p className="my-[.5em] border-b border-text-muted-light pb-[1.5em] font-bold text-text-muted-light dark:border-text-muted-dark dark:text-text-muted-dark">
-              Total Followers: 23, 004
+            <h1 className="text-2xl leading-none font-bold md:text-[28px]">
+              Social Media Dashboard
+            </h1>
+            <p className="mt-2 text-sm leading-none font-bold text-text-muted-light dark:text-text-muted-dark">
+              Total Followers: {formatNumber(totalFollowers)}
             </p>
           </div>
           {children}

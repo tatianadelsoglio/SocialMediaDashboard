@@ -4,10 +4,7 @@ interface ContainerProps {
   children: ReactNode
 }
 
+// 1110px de contenido a 1440 (diseño desktop) con 24px de margen lateral.
 export default function Container({ children }: ContainerProps) {
-  return (
-    <div className="box-content px-[30px] sm:mx-auto sm:max-w-[1440px]">
-      {children}
-    </div>
-  )
+  return <div className="mx-auto max-w-[1158px] px-6">{children}</div>
 }

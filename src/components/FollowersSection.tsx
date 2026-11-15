@@ -5,9 +5,9 @@ import FollowersCard from './FollowersCard'
 
 export default function FollowersSection() {
   return (
-    <section className="-mt-[50px] mb-[3em]">
+    <section>
       <Container>
-        <CardGrid>
+        <CardGrid variant="followers">
           {followersStats.map((stat) => (
             <FollowersCard key={stat.id} {...stat} />
           ))}

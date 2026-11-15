@@ -1,22 +1,32 @@
-import { iconUp, platformIcons } from '../data/icons'
+import { platforms } from '../data/platforms'
 import type { OverviewStat } from '../types/social'
+import TrendArrow from './TrendArrow'
 
-export default function ViewsCard({ platform, pageViews, growth }: OverviewStat) {
+export default function ViewsCard({
+  platform,
+  metric,
+  value,
+  changePercent,
+}: OverviewStat) {
+  const isPositive = changePercent >= 0
+
   return (
-    <div className="grid grid-cols-[1fr_1fr] gap-y-[1em] rounded-lg bg-card-light p-[1.7em] dark:bg-card-dark">
-      <p className="text-[.9em] font-bold text-text-muted-light dark:text-text-muted-dark">
-        Page Views
-      </p>
-      <p className="text-right">
-        <img src={platformIcons[platform]} alt="" className="inline align-baseline" />
-      </p>
-      <p className="text-[2.5em] leading-[.9] font-bold">{pageViews}</p>
-      <p className="flex items-end justify-end text-[.8em] font-bold text-lime-green">
-        <span className="flex items-center">
-          <img src={iconUp} alt="" className="mr-[5px]" />
-          {growth}%
-        </span>
-      </p>
-    </div>
+    <li className="rounded-[5px] bg-card-light pt-[26px] pr-[30px] pb-[23px] pl-6 hover:bg-card-hover-light dark:bg-card-dark dark:hover:bg-card-hover-dark">
+      <div className="flex h-5 items-center justify-between gap-4">
+        <p className="text-overview-heading leading-none font-bold text-text-muted-light dark:text-text-muted-dark">
+          {metric}
+        </p>
+        <img src={platforms[platform].icon} alt="" />
+      </div>
+      <div className="mt-6 flex items-baseline justify-between gap-4">
+        <p className="text-[32px] leading-none font-bold">{value}</p>
+        <p
+          className={`text-xs leading-none font-bold ${isPositive ? 'text-lime-green' : 'text-bright-red'}`}
+        >
+          <TrendArrow isPositive={isPositive} />
+          {Math.abs(changePercent)}%
+        </p>
+      </div>
+    </li>
   )
 }
