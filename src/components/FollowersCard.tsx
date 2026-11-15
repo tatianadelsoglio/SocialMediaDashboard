@@ -37,7 +37,7 @@ export default function FollowersCard({
         <span className="sr-only">,</span>
       </p>
       <p
-        className={`mt-7 text-xs leading-none font-bold ${isPositive ? 'text-lime-green' : 'text-bright-red'}`}
+        className={`mt-7 text-xs leading-none font-bold ${isPositive ? 'text-lime-green-aa dark:text-lime-green' : 'text-bright-red-aa-light dark:text-bright-red-aa-dark'}`}
       >
         <TrendArrow isPositive={isPositive} />
         {Math.abs(todayChange)}

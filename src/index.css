@@ -43,9 +43,28 @@
   --color-text-light: hsl(230, 17%, 14%); /* Gray 950 (Text) */
 
   /* ── Derivados de los JPG (no figuran en el style guide) ─────── */
-  /* Fondo de tarjeta en hover, medido en design/active-states-*.jpg */
-  --color-card-hover-light: hsl(232, 33%, 91%);
-  --color-card-hover-dark: hsl(228, 26%, 27%);
+  /* Fondo de tarjeta en hover, medido en design/active-states-*.jpg y
+     ajustado para AA (medido: L 91% claro, L 27% oscuro; ver tabla abajo). */
+  --color-card-hover-light: hsl(232, 33%, 92.6%);
+  --color-card-hover-dark: hsl(228, 26%, 25%);
+
+  /* ── Ajustes AA (WCAG 2.1, texto normal ≥ 4.5:1) ─────────────── */
+  /* Mismo tono y saturación que el guide; solo cambia la luminosidad, lo
+     mínimo para pasar sobre la tarjeta y sobre su hover. Los originales
+     (--color-lime-green, --color-bright-red) siguen definidos arriba:
+     el verde original se usa en tema oscuro, donde ya pasa.
+
+     Contrastes medidos en Chrome (sRGB 8 bits).
+     Token                    Guide                 AA                     Antes (tarjeta / hover)  Después (tarjeta / hover)
+     lime-green-aa (claro)    hsl(163, 72%, 41%)    hsl(163, 72%, 27.2%)   2.37 / 2.05              4.92 / 4.50
+     bright-red-aa-light      hsl(356, 69%, 56%)    hsl(356, 69%, 46.9%)   3.83 / 3.33              4.92 / 4.50
+     bright-red-aa-dark       hsl(356, 69%, 56%)    hsl(356, 69%, 70.9%)   3.30 / 2.60              5.37 / 4.52
+     card-hover-light*        hsl(232, 33%, 91%)    hsl(232, 33%, 92.6%)   Gray 650: 4.28           Gray 650: 4.51
+     card-hover-dark*         hsl(228, 26%, 27%)    hsl(228, 26%, 25%)     Green 500: 4.22          Green 500: 4.50
+     * derivados del JPG, no del guide. */
+  --color-lime-green-aa: hsl(163, 72%, 27.2%);
+  --color-bright-red-aa-light: hsl(356, 69%, 46.9%);
+  --color-bright-red-aa-dark: hsl(356, 69%, 70.9%);
 }
 
 @layer base {
