@@ -27,8 +27,9 @@ export default function ThemeSwitch({ checked, onChange }: ThemeSwitchProps) {
         >
           <span className="theme-transition absolute inset-0 rounded-full bg-linear-to-r/srgb from-toggle-from-dark to-toggle-to-dark opacity-0 group-hover:opacity-100 dark:opacity-100" />
           {/* Anillo interior en tema claro: la perilla (Navy 50) contra la pista (Gray 400)
-              da 1.86:1; el anillo (Gray 950 al 90%) da 5.9:1 contra la pista y ≥4.9:1 contra
-              el degradado del hover. En oscuro la perilla ya da 4.2:1 contra el degradado. */}
+              da 1.86:1; el anillo (Gray 950 al 90%) da 5.9:1 contra la pista. Contra el degradado
+              del hover va de ~6.8:1 (extremo verde, junto a la perilla) a ~3.6:1 en el peor caso
+              (extremo azul): pasa el 3:1. En oscuro la perilla ya da 4.2:1 contra el degradado. */}
           <span className="relative block size-[18px] translate-x-6 rounded-full bg-card-light ring-1 ring-text-light/90 ring-inset transition-[translate,background-color,box-shadow] duration-300 motion-reduce:transition-none dark:translate-x-0 dark:bg-card-dark dark:ring-0" />
         </span>
       </label>
