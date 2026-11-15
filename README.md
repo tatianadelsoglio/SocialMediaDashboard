@@ -83,7 +83,7 @@ Contrastes medidos en Chrome sobre los colores pintados. **Varios valores quedan
 - **Inter (Fontsource)**: la fuente del diseño servida desde el proyecto, solo con el subset latin.
 - **Vitest + Testing Library + jsdom**: tests del tema, el interruptor, las tarjetas y el pie desde el punto de vista de quien usa la página.
 - **ESLint**: reglas de React Hooks y TypeScript.
-- **GitHub Actions + GitHub Pages**: lint, typecheck, tests y build en cada push y PR; deploy automático cuando el CI pasa en `main`.
+- **GitHub Actions + GitHub Pages**: lint, typecheck, tests y build en cada push y PR a `main`; deploy automático cuando el CI pasa en `main`.
 
 ### Antes y después
 
@@ -203,7 +203,7 @@ Contrast measured in Chrome on the rendered colors. **Several values sit right a
 - **Inter (Fontsource)**: the design's font served from the project, latin subset only.
 - **Vitest + Testing Library + jsdom**: tests for theme, toggle, cards and footer from the user's point of view.
 - **ESLint**: React Hooks and TypeScript rules.
-- **GitHub Actions + GitHub Pages**: lint, typecheck, tests and build on every push and PR; automatic deploy when CI passes on `main`.
+- **GitHub Actions + GitHub Pages**: lint, typecheck, tests and build on every push and PR to `main`; automatic deploy when CI passes on `main`.
 
 ### Before and after
 
