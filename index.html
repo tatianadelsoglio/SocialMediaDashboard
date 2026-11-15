@@ -24,6 +24,10 @@
           theme === 'dark' ||
           (theme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
         document.documentElement.classList.toggle('dark', dark)
+        var color = dark ? 'hsl(232, 19%, 15%)' : 'hsl(225, 100%, 98%)'
+        document.querySelectorAll('meta[name="theme-color"]').forEach(function (meta) {
+          meta.setAttribute('content', color)
+        })
       })()
     </script>
   </head>

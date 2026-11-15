@@ -6,6 +6,12 @@ export type Theme = 'light' | 'dark'
 export const THEME_STORAGE_KEY = 'theme'
 export const DARK_SCHEME_QUERY = '(prefers-color-scheme: dark)'
 
+// Color de la barra del navegador: la franja superior (Top BG Pattern) de cada tema
+const THEME_COLORS: Record<Theme, string> = {
+  light: 'hsl(225, 100%, 98%)',
+  dark: 'hsl(232, 19%, 15%)',
+}
+
 function isTheme(value: unknown): value is Theme {
   return value === 'light' || value === 'dark'
 }
@@ -31,4 +37,15 @@ export function writeStoredTheme(theme: Theme): void {
 
 export function systemPrefersDark(): boolean {
   return window.matchMedia(DARK_SCHEME_QUERY).matches
+}
+
+/** Aplica el tema en <html> y en las <meta name="theme-color"> de index.html. */
+export function applyTheme(isDark: boolean): void {
+  document.documentElement.classList.toggle('dark', isDark)
+  // Las dos metas tienen media por prefers-color-scheme; se pisan con el color
+  // del tema activo para que la barra siga también a la elección del switch.
+  const color = THEME_COLORS[isDark ? 'dark' : 'light']
+  document
+    .querySelectorAll<HTMLMetaElement>('meta[name="theme-color"]')
+    .forEach((meta) => meta.setAttribute('content', color))
 }

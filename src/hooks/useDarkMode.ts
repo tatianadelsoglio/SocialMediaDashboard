@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import {
+  applyTheme,
   DARK_SCHEME_QUERY,
   readStoredTheme,
   systemPrefersDark,
@@ -25,7 +26,7 @@ export function useDarkMode() {
   // La clase vive en <html> para que el script inline de index.html pueda
   // aplicarla antes de que React monte.
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', isDark)
+    applyTheme(isDark)
   }, [isDark])
 
   const setIsDark = useCallback((dark: boolean) => {
