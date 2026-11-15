@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react'
 import Container from './Container'
 
-// Proporción real de los PNG de marca (361 × 316)
-const BRAND_ICON_WIDTH = 361
-const BRAND_ICON_HEIGHT = 316
+// Exportados a 40 × 35 (2x de 20px de ancho), misma proporción que el original 361 × 316
+const BRAND_ICON_WIDTH = 40
+const BRAND_ICON_HEIGHT = 35
 
 interface ExternalLinkProps {
   href: string
@@ -45,18 +45,18 @@ export default function Footer() {
           <span className="inline-flex items-center gap-1 align-middle">
             TAMADE
             <img
-              src="/brand/tamade-icon.png"
+              src="/brand/tamade-icon.webp"
               alt=""
               width={BRAND_ICON_WIDTH}
               height={BRAND_ICON_HEIGHT}
-              className="h-5 w-auto dark:hidden"
+              className="h-auto w-5 dark:hidden"
             />
             <img
-              src="/brand/tamade-icon-white.png"
+              src="/brand/tamade-icon-white.webp"
               alt=""
               width={BRAND_ICON_WIDTH}
               height={BRAND_ICON_HEIGHT}
-              className="hidden h-5 w-auto dark:block"
+              className="hidden h-auto w-5 dark:block"
             />
           </span>
         </p>
