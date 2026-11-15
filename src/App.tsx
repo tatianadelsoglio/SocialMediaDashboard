@@ -1,4 +1,5 @@
 import FollowersSection from './components/FollowersSection'
+import Footer from './components/Footer'
 import Header from './components/Header'
 import OverviewSection from './components/OverviewSection'
 import ThemeSwitch from './components/ThemeSwitch'
@@ -8,7 +9,7 @@ export default function App() {
   const [isDark, setIsDark] = useDarkMode()
 
   return (
-    <div className="relative isolate min-h-screen pb-12">
+    <div className="relative isolate min-h-screen">
       {/* Franja superior del diseño (Top BG Pattern) */}
       <div
         aria-hidden="true"
@@ -21,6 +22,7 @@ export default function App() {
         <FollowersSection />
         <OverviewSection />
       </main>
+      <Footer />
     </div>
   )
 }
