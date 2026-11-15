@@ -9,7 +9,7 @@ interface HeaderProps {
 
 export default function Header({ children }: HeaderProps) {
   return (
-    <header className="pt-[38px] pb-[41px] md:pb-[49px]">
+    <header className="pt-[38px] pb-10 md:pb-12">
       <Container>
         <div className="md:flex md:items-start md:justify-between md:gap-6">
           <div>
