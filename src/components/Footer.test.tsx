@@ -43,11 +43,11 @@ describe('Footer', () => {
     const { container } = render(<Footer />)
     const [colorIcon, whiteIcon] = container.querySelectorAll('img')
 
-    expect(colorIcon).toHaveAttribute('src', `${import.meta.env.BASE_URL}brand/tamade-icon.webp`)
+    expect(colorIcon).toHaveAttribute('src', '/SocialMediaDashboard/brand/tamade-icon.webp')
     expect(colorIcon).toHaveClass('dark:opacity-0')
     expect(colorIcon).not.toHaveClass('opacity-0')
 
-    expect(whiteIcon).toHaveAttribute('src', `${import.meta.env.BASE_URL}brand/tamade-icon-white.webp`)
+    expect(whiteIcon).toHaveAttribute('src', '/SocialMediaDashboard/brand/tamade-icon-white.webp')
     expect(whiteIcon).toHaveClass('opacity-0', 'dark:opacity-100')
 
     for (const icon of [colorIcon, whiteIcon]) {
