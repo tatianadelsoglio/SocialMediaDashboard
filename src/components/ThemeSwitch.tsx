@@ -20,7 +20,7 @@ export default function ThemeSwitch({ checked, onChange }: ThemeSwitchProps) {
       />
       <label
         htmlFor={inputId}
-        className="block h-[40px] w-[80px] cursor-pointer rounded-[20px] bg-switch-track p-[5px] select-none before:block before:size-[30px] before:rounded-full before:bg-switch-knob before:transition-all before:duration-300 before:ease-[ease] before:will-change-transform peer-checked:before:translate-x-[40px] dark:bg-linear-to-r/srgb dark:from-switch-from-dark dark:to-switch-to-dark dark:before:bg-switch-knob-dark"
+        className="block h-[40px] w-[80px] cursor-pointer rounded-[20px] bg-toggle-light p-[5px] select-none before:block before:size-[30px] before:rounded-full before:bg-card-light before:transition-all before:duration-300 before:ease-[ease] before:will-change-transform peer-checked:before:translate-x-[40px] dark:bg-linear-to-r/srgb dark:from-toggle-from-dark dark:to-toggle-to-dark dark:before:bg-card-dark"
       ></label>
     </div>
   )

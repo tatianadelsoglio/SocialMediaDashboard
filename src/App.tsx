@@ -9,7 +9,7 @@ export default function App() {
 
   return (
     <main
-      className={`min-h-screen bg-background text-foreground antialiased dark:bg-background-dark dark:text-foreground-dark ${isDark ? 'dark' : ''}`}
+      className={`min-h-screen bg-bg-light text-text-light antialiased dark:bg-bg-dark dark:text-text-dark ${isDark ? 'dark' : ''}`}
     >
       <Header>
         <ThemeSwitch checked={isDark} onChange={setIsDark} />

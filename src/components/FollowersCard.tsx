@@ -5,7 +5,7 @@ const accentBar: Record<Platform, string> = {
   facebook: 'before:bg-facebook',
   twitter: 'before:bg-twitter',
   instagram:
-    'before:bg-linear-to-r/srgb before:from-instagram-1 before:to-instagram-2',
+    'before:bg-linear-to-r/srgb before:from-instagram-from before:via-instagram-via before:to-instagram-to',
   youtube: 'before:bg-youtube',
 }
 
@@ -17,15 +17,15 @@ export default function FollowersCard({
 }: FollowersStat) {
   return (
     <article
-      className={`relative overflow-hidden rounded-lg bg-card py-[1.7em] text-center before:absolute before:inset-x-0 before:top-0 before:block before:h-[4px] dark:bg-card-dark ${accentBar[platform]}`}
+      className={`relative overflow-hidden rounded-lg bg-card-light py-[1.7em] text-center before:absolute before:inset-x-0 before:top-0 before:block before:h-[4px] dark:bg-card-dark ${accentBar[platform]}`}
     >
-      <p className="my-[1em] flex items-center justify-center text-[.9em] font-bold text-card-title dark:text-card-title-dark">
+      <p className="my-[1em] flex items-center justify-center text-[.9em] font-bold text-text-muted-light dark:text-text-muted-dark">
         <img src={platformIcons[platform]} alt="" className="mr-[5px]" />
         {username}
       </p>
       <p className="my-[1em]">
         <span className="text-[50px] font-bold">{followers}</span>
-        <span className="block text-[.75em] tracking-[5px] text-card-title uppercase dark:text-card-title-dark">
+        <span className="block text-[.75em] tracking-[5px] text-text-muted-light uppercase dark:text-text-muted-dark">
           Followers
         </span>
       </p>

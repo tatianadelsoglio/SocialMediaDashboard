@@ -1,56 +1,63 @@
 @import 'tailwindcss';
 
-/* El modo oscuro lo controla la clase `dark` en <main> (ver useDarkMode). */
+/* El modo oscuro lo controla la clase `dark` en <html> (ver useDarkMode). */
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-*: initial;
+  --font-weight-*: initial;
 
+  /* ── Tipografía (style-guide.md) ─────────────────────────────── */
   --font-sans: 'Inter Variable', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+  --text-overview-heading: 0.875rem; /* 14px: encabezados de las tarjetas del overview */
 
-  /* Breakpoint propio: el layout original pasa a 2 columnas a 480px */
-  --breakpoint-xs: 30rem;
+  /* ── Primary (style-guide.md) ────────────────────────────────── */
+  --color-lime-green: hsl(163, 72%, 41%); /* Green 500 */
+  --color-bright-red: hsl(356, 69%, 56%); /* Red 500 */
+  --color-facebook: hsl(208, 92%, 53%); /* Blue 600 */
+  --color-twitter: hsl(203, 89%, 53%); /* Blue 500 */
+  --color-instagram-from: hsl(37, 97%, 70%); /* Linear gradient (Instagram) */
+  --color-instagram-via: hsl(5, 77%, 71%);
+  --color-instagram-to: hsl(329, 70%, 58%);
+  --color-youtube: hsl(348, 97%, 39%); /* Red 700 */
 
-  /* Marcas y estados */
-  --color-lime-green: hsl(163, 72%, 41%);
-  --color-bright-red: hsl(356, 69%, 56%);
-  --color-facebook: #168ef4;
-  --color-twitter: hsl(203, 89%, 53%);
-  --color-instagram-1: hsl(37, 97%, 70%);
-  --color-instagram-2: hsl(329, 70%, 58%);
-  --color-youtube: hsl(348, 97%, 39%);
+  /* Toggle */
+  --color-toggle-from-dark: hsl(210, 79%, 56%); /* Linear gradient (Toggle), dark */
+  --color-toggle-to-dark: hsl(146, 68%, 55%);
+  --color-toggle-light: hsl(230, 22%, 74%); /* Gray 400 (Toggle), light */
 
-  /* Tema claro */
-  --color-background: white;
-  --color-foreground: #1d2029;
-  --color-muted: #5f616d;
-  --color-surface: #f8f9fe;
-  --color-card: #f0f3fa;
-  --color-card-title: #6f717e;
-  --color-switch-track: #5f616d;
-  --color-switch-knob: white;
+  /* ── Neutral, tema oscuro (style-guide.md) ───────────────────── */
+  --color-bg-dark: hsl(230, 17%, 14%); /* Gray 950 (BG) */
+  --color-top-bg-dark: hsl(232, 19%, 15%); /* Gray 900 (Top BG Pattern) */
+  --color-card-dark: hsl(228, 28%, 20%); /* Navy 950 (Card BG) */
+  --color-text-muted-dark: hsl(230, 22%, 74%); /* Gray 400 (Text) */
+  --color-text-dark: hsl(0, 100%, 100%); /* White (Text) */
 
-  /* Tema oscuro */
-  --color-background-dark: #1d2029;
-  --color-foreground-dark: white;
-  --color-muted-dark: #8088ad;
-  --color-surface-dark: #1d2029;
-  --color-card-dark: #252b43;
-  --color-card-title-dark: #8088ad;
-  --color-switch-from-dark: #4796d2;
-  --color-switch-to-dark: #37ce8f;
-  --color-switch-knob-dark: #282943;
+  /* ── Neutral, tema claro (style-guide.md) ────────────────────── */
+  --color-bg-light: hsl(0, 100%, 100%); /* White (BG) */
+  --color-top-bg-light: hsl(225, 100%, 98%); /* Blue 50 (Top BG Pattern) */
+  --color-card-light: hsl(227, 47%, 96%); /* Navy 50 (Card BG) */
+  --color-text-muted-light: hsl(228, 12%, 44%); /* Gray 650 (Text) */
+  --color-text-light: hsl(230, 17%, 14%); /* Gray 950 (Text) */
+
+  /* ── Derivados de los JPG (no figuran en el style guide) ─────── */
+  /* Fondo de tarjeta en hover, medido en design/active-states-*.jpg */
+  --color-card-hover-light: hsl(232, 33%, 91%);
+  --color-card-hover-dark: hsl(228, 26%, 27%);
 }
 
 @layer base {
-  /* Preflight fija 1.5; el diseño original usa el line-height por defecto */
   html {
-    line-height: normal;
+    color-scheme: light;
   }
 
-  /* Preflight pone max-width: 100%, lo que cambia el ancho mínimo de las
-     tarjetas en la grilla. El original usaba el default del navegador. */
-  img {
-    max-width: none;
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-bg-light font-sans text-text-light antialiased dark:bg-bg-dark dark:text-text-dark;
   }
 }
