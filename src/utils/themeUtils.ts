@@ -12,15 +12,15 @@ const THEME_COLORS: Record<Theme, string> = {
   dark: 'hsl(232, 19%, 15%)',
 }
 
-function isTheme(value: unknown): value is Theme {
-  return value === 'light' || value === 'dark'
+/** Valida un valor leído de localStorage; cualquier otro valor cuenta como "sin elección". */
+export function parseTheme(value: string | null): Theme | null {
+  return value === 'light' || value === 'dark' ? value : null
 }
 
 /** Tema elegido con el switch, o null si la persona nunca eligió. */
 export function readStoredTheme(): Theme | null {
   try {
-    const value = localStorage.getItem(THEME_STORAGE_KEY)
-    return isTheme(value) ? value : null
+    return parseTheme(localStorage.getItem(THEME_STORAGE_KEY))
   } catch {
     // localStorage puede no estar disponible (modo privado, cookies bloqueadas)
     return null
