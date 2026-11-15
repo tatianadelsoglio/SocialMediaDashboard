@@ -1,5 +1,5 @@
 import { act, renderHook } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import {
   addThemeColorMetas,
   breakLocalStorage,
@@ -109,6 +109,19 @@ describe('useDarkMode', () => {
       dispatchStorage('otra-clave', 'dark')
       expect(isDarkOf(result)).toBe(false)
     })
+  })
+
+  it('deja de escuchar el evento storage al desmontar', () => {
+    mockSystemColorScheme(false)
+    const addSpy = vi.spyOn(window, 'addEventListener')
+    const removeSpy = vi.spyOn(window, 'removeEventListener')
+    const { unmount } = renderHook(() => useDarkMode())
+
+    const storageHandler = addSpy.mock.calls.find(([type]) => type === 'storage')?.[1]
+    expect(storageHandler).toBeDefined()
+
+    unmount()
+    expect(removeSpy).toHaveBeenCalledWith('storage', storageHandler)
   })
 
   it('deja de escuchar al sistema al desmontar', () => {
