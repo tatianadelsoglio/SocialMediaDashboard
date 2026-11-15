@@ -1,19 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
+import {
+  DARK_SCHEME_QUERY,
+  readStoredTheme,
+  systemPrefersDark,
+  writeStoredTheme,
+  type Theme,
+} from '../utils/themeUtils'
 
-const DARK_SCHEME_QUERY = '(prefers-color-scheme: dark)'
-
-// Arranca con la preferencia del sistema y la sigue si cambia.
-// El switch puede pisarla manualmente con setIsDark.
+// Sin elección guardada, sigue a prefers-color-scheme (también en caliente).
+// Si la persona elige con el switch, esa elección se guarda y pisa al sistema.
 export function useDarkMode() {
-  const [isDark, setIsDark] = useState(
-    () => window.matchMedia(DARK_SCHEME_QUERY).matches,
-  )
+  const [storedTheme, setStoredTheme] = useState<Theme | null>(readStoredTheme)
+  const [systemDark, setSystemDark] = useState(systemPrefersDark)
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(DARK_SCHEME_QUERY)
-    const handleChange = (event: MediaQueryListEvent) => setIsDark(event.matches)
+    const handleChange = (event: MediaQueryListEvent) => setSystemDark(event.matches)
     mediaQuery.addEventListener('change', handleChange)
     return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  const isDark = storedTheme ? storedTheme === 'dark' : systemDark
+
+  // La clase vive en <html> para que el script inline de index.html pueda
+  // aplicarla antes de que React monte.
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDark)
+  }, [isDark])
+
+  const setIsDark = useCallback((dark: boolean) => {
+    const theme: Theme = dark ? 'dark' : 'light'
+    writeStoredTheme(theme)
+    setStoredTheme(theme)
   }, [])
 
   return [isDark, setIsDark] as const

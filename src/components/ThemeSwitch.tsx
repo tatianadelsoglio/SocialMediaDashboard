@@ -26,7 +26,7 @@ export default function ThemeSwitch({ checked, onChange }: ThemeSwitchProps) {
         className="relative block h-6 w-12 shrink-0 cursor-pointer rounded-full bg-toggle-light p-[3px]"
       >
         <span className="absolute inset-0 rounded-full bg-linear-to-r/srgb from-toggle-from-dark to-toggle-to-dark opacity-0 group-hover:opacity-100 dark:opacity-100" />
-        <span className="relative block size-[18px] translate-x-6 rounded-full bg-card-light transition-transform duration-300 dark:translate-x-0 dark:bg-card-dark" />
+        <span className="relative block size-[18px] translate-x-6 rounded-full bg-card-light transition-[translate,background-color] duration-300 motion-reduce:transition-none dark:translate-x-0 dark:bg-card-dark" />
       </label>
     </div>
   )

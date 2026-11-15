@@ -6,6 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Social media dashboard with theme switcher" />
     <title>Social Media Dashboard</title>
+    <!-- Aplica el tema antes del primer pintado (sin parpadeo).
+         Misma clave y lógica que src/utils/themeUtils.ts. -->
+    <script>
+      ;(function () {
+        var theme = null
+        try {
+          theme = localStorage.getItem('theme')
+        } catch (e) {}
+        var dark =
+          theme === 'dark' ||
+          (theme !== 'light' && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        document.documentElement.classList.toggle('dark', dark)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>

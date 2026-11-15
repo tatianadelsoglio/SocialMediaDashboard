@@ -8,7 +8,7 @@ export default function App() {
   const [isDark, setIsDark] = useDarkMode()
 
   return (
-    <div className={`relative isolate min-h-screen pb-12 ${isDark ? 'dark' : ''}`}>
+    <div className="relative isolate min-h-screen pb-12">
       {/* Franja superior del diseño (Top BG Pattern) */}
       <div
         aria-hidden="true"
