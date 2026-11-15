@@ -13,7 +13,7 @@ export default function App() {
       {/* Franja superior del diseño (Top BG Pattern) */}
       <div
         aria-hidden="true"
-        className="absolute inset-x-0 top-0 -z-10 h-[235px] rounded-b-[20px] bg-top-bg-light md:h-[245px] dark:bg-top-bg-dark"
+        className="theme-transition absolute inset-x-0 top-0 -z-10 h-[235px] rounded-b-[20px] bg-top-bg-light md:h-[245px] dark:bg-top-bg-dark"
       />
       <Header>
         <ThemeSwitch checked={isDark} onChange={setIsDark} />

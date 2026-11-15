@@ -12,7 +12,7 @@ export default function OverviewSection() {
       <Container>
         <h2
           id={headingId}
-          className="mb-[30px] text-2xl leading-none font-bold text-text-muted-light md:mb-[27px] dark:text-text-dark"
+          className="theme-transition mb-[30px] text-2xl leading-none font-bold text-text-muted-light md:mb-[27px] dark:text-text-dark"
         >
           Overview - Today
         </h2>

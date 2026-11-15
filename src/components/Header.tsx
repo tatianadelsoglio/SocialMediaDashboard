@@ -16,7 +16,7 @@ export default function Header({ children }: HeaderProps) {
             <h1 className="text-2xl leading-none font-bold md:text-[28px]">
               Social Media Dashboard
             </h1>
-            <p className="mt-2 text-sm leading-none font-bold text-text-muted-light dark:text-text-muted-dark">
+            <p className="theme-transition mt-2 text-sm leading-none font-bold text-text-muted-light dark:text-text-muted-dark">
               Total Followers: {formatNumber(totalFollowers)}
             </p>
           </div>

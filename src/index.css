@@ -77,16 +77,19 @@
   }
 
   body {
-    @apply bg-bg-light font-sans text-text-light antialiased dark:bg-bg-dark dark:text-text-dark;
+    @apply theme-transition bg-bg-light font-sans text-text-light antialiased dark:bg-bg-dark dark:text-text-dark;
   }
+}
 
-  /* Transición suave al cambiar de tema (y en los hover de color).
-     Las utilidades transition-* de un elemento la reemplazan. */
+/* Transición suave al cambiar de tema. Va solo en los elementos cuyo color,
+   fondo, borde, anillo u opacidad cambia con el tema (también aprovecha los
+   hover). El texto sin color propio la hereda del body. */
+@utility theme-transition {
   @media (prefers-reduced-motion: no-preference) {
-    body,
-    body *,
-    body *::before {
-      transition-property: color, background-color, border-color, opacity;
+    &,
+    &::before,
+    &::after {
+      transition-property: color, background-color, border-color, box-shadow, opacity;
       transition-duration: 300ms;
       transition-timing-function: ease;
     }
