@@ -1,40 +1,10 @@
-import type { ReactNode } from 'react'
 import Container from './Container'
+import ExternalLink from './ExternalLink'
+import Separator from './Separator'
 
 // Exportados a 40 × 35 (2x de 20px de ancho), misma proporción que el original 361 × 316
 const BRAND_ICON_WIDTH = 40
 const BRAND_ICON_HEIGHT = 35
-
-interface ExternalLinkProps {
-  href: string
-  children: ReactNode
-}
-
-function ExternalLink({ href, children }: ExternalLinkProps) {
-  return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="theme-transition underline underline-offset-2 hover:text-text-light focus-visible:rounded-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current dark:hover:text-text-dark"
-    >
-      {children}
-      <span className="sr-only"> (se abre en otra pestaña)</span>
-    </a>
-  )
-}
-
-// El punto medio es decorativo; el punto oculto da la pausa al lector de pantalla
-function Separator() {
-  return (
-    <>
-      <span aria-hidden="true" className="mx-1.5">
-        ·
-      </span>
-      <span className="sr-only">. </span>
-    </>
-  )
-}
 
 export default function Footer() {
   return (
